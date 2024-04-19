@@ -57,12 +57,10 @@ app.get('/players/:playerId/', async (request, response) => {
   SELECT * FROM cricket_team WHERE player_id=${playerId};
   `
   const playeridarray = await db.all(basesonPLayeridQuery)
-  response.send(
-    playeridarray.map(eachplayer => convetsnakecaseToCamelCase(eachplayer)),
-  )
-})
 
-module.exports = app
+  const array1 = playeridarray.map(each => convetsnakecaseToCamelCase(each))
+  response.send(array1[0])
+})
 
 //API 5
 
@@ -74,3 +72,4 @@ app.delete('/players/:playerId', async (request, response) => {
   await db.run(deleteQuery)
   response.send('Player Removed')
 })
+module.exports = app
