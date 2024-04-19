@@ -1,0 +1,15 @@
+####
+
+GET http://localhost:3000/Players/
+
+###
+
+GET http://localhost:3000/Players/1/
+
+
+
+
+delete api 
+###
+
+DELETE http://localhost:3000/Players/3/
